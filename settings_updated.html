@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Palworld INI Settings</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+        .switch {
+          position: relative;
+          display: inline-block;
+          width: 60px;
+          height: 34px;
+        }
+        .switch input { 
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+        input:checked + .slider {
+          background-color: #2196F3;
+        }
+        input:focus + .slider {
+          box-shadow: 0 0 1px #2196F3;
+        }
+        input:checked + .slider:before {
+          -webkit-transform: translateX(26px);
+          -ms-transform: translateX(26px);
+          transform: translateX(26px);
+        }
+        .slider.round {
+          border-radius: 34px;
+        }
+        .slider.round:before {
+          border-radius: 50%;
+        }
+        .description {
+            font-size: small;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Dynamic INI Settings</h2>
+        <form id="settings-form">
+            <!-- Dynamic content will be inserted here -->
+        </form>
+        <button id="save-btn" class="btn btn-primary">Save as .ini</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        // Fetch the JSON file and load it into local storage
+        $.getJSON('/data/UpdatedPalWorldSettings.json', function(settings) {
+            localStorage.setItem('settings', JSON.stringify(settings['/Script/Pal.PalGameWorldSettings']['OptionSettings']));
+            createSettingsForm(JSON.parse(localStorage.getItem('settings')));
+        });
+
+        function createSettingsForm(settings) {
+            var form = $('#settings-form');
+            form.empty(); // Clear the form before populating it
+            $.each(settings, function(key, setting) {
+                var inputHtml = '';
+                var value = setting.value;
+                var description = setting.description;
+
+                if (typeof value === 'boolean') {
+                    // Create a switch for boolean values
+                    inputHtml = $('<label class="switch"><input type="checkbox" ' + (value ? 'checked' : '') + '><span class="slider round"></span></label>');
+                    inputHtml.find('input').change(function() {
+                        settings[key].value = this.checked;
+                        localStorage.setItem('settings', JSON.stringify(settings));
+                    });
+                } else {
+                    // Create a text input for other values
+                    inputHtml = $('<input type="text" class="form-control" value="' + value + '">');
+                    inputHtml.change(function() {
+                        settings[key].value = this.value;
+                        localStorage.setItem('settings', JSON.stringify(settings));
+                    });
+                }
+
+                form.append('<div class="form-group"><label>' + key + '</label></div>').find('.form-group:last').append(inputHtml).append('<p class="description">' + description + '</p>');
+            });
+        }
+
+        // Function to generate .ini content from the JSON data
+        function generateIniContent(settings) {
+            let iniContent = "[/Script/Pal.PalGameWorldSettings]";
+            iniContent += "OptionSettings=(";
+            let options = [];
+            $.each(settings, function(key, setting) {
+                let formattedValue;
+                // Handle different types of values (string, boolean, number)
+                if (typeof setting.value === 'string') {
+                    formattedValue = `"${setting.value}"`; // Encapsulate strings in quotes
+                } else if (typeof setting.value === 'boolean') {
+                    formattedValue = setting.value ? 'True' : 'False'; // Represent boolean as True/False
+                } else {
+                    formattedValue = setting.value; // Keep numbers as-is
+                }
+                options.push(key + "=" + formattedValue);
+            });
+            iniContent += options.join(',') + ")";
+            return iniContent;
+        }
+
+        // Function to trigger the download of the .ini file
+        function downloadIniFile(filename, text) {
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', filename);
+
+            element.style.display = 'none';
+            document.body.appendChild(element);
+
+            element.click();
+
+            document.body.removeChild(element);
+        }
+
+        // Add click event listener to the save button
+        $('#save-btn').click(function() {
+            var settings = JSON.parse(localStorage.getItem('settings'));
+            var iniContent = generateIniContent(settings);
+            downloadIniFile('PalWorldSettings.ini', iniContent);
+        });
+    </script>
+</body>
+</html>

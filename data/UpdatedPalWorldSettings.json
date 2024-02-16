@@ -1,0 +1,254 @@
+{
+    "/Script/Pal.PalGameWorldSettings": {
+        "OptionSettings": {
+            "Difficulty": {
+                "value": "None",
+                "description": "Difficulty - This option doesn't seem to have an effect on dedicated servers."
+            },
+            "DayTimeSpeedRate": {
+                "value": 5.0,
+                "description": "No description available."
+            },
+            "NightTimeSpeedRate": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "ExpRate": {
+                "value": 5.0,
+                "description": "No description available."
+            },
+            "PalCaptureRate": {
+                "value": 2.0,
+                "description": "No description available."
+            },
+            "PalSpawnNumRate": {
+                "value": 2.0,
+                "description": "No description available."
+            },
+            "PalDamageRateAttack": {
+                "value": 2.0,
+                "description": "No description available."
+            },
+            "PalDamageRateDefense": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "PlayerDamageRateAttack": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "PlayerDamageRateDefense": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "PlayerStomachDecreaceRate": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "PlayerStaminaDecreaceRate": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "PlayerAutoHPRegeneRate": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "PlayerAutoHpRegeneRateInSleep": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "PalStomachDecreaceRate": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "PalStaminaDecreaceRate": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "PalAutoHPRegeneRate": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "PalAutoHpRegeneRateInSleep": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "BuildObjectDamageRate": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "BuildObjectDeteriorationDamageRate": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "CollectionDropRate": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "CollectionObjectHpRate": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "CollectionObjectRespawnSpeedRate": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "EnemyDropItemRate": {
+                "value": 3.0,
+                "description": "No description available."
+            },
+            "DeathPenalty": {
+                "value": "Item",
+                "description": "No description available."
+            },
+            "bEnablePlayerToPlayerDamage": {
+                "value": false,
+                "description": "No description available."
+            },
+            "bEnableFriendlyFire": {
+                "value": false,
+                "description": "No description available."
+            },
+            "bEnableInvaderEnemy": {
+                "value": true,
+                "description": "Invader Enemy - Enable or disable invader enemies."
+            },
+            "bActiveUNKO": {
+                "value": false,
+                "description": "No description available."
+            },
+            "bEnableAimAssistPad": {
+                "value": true,
+                "description": "No description available."
+            },
+            "bEnableAimAssistKeyboard": {
+                "value": false,
+                "description": "No description available."
+            },
+            "DropItemMaxNum": {
+                "value": 3000,
+                "description": "No description available."
+            },
+            "DropItemMaxNum_UNKO": {
+                "value": 100,
+                "description": "No description available."
+            },
+            "BaseCampMaxNum": {
+                "value": 128,
+                "description": "No description available."
+            },
+            "BaseCampWorkerMaxNum": {
+                "value": 15,
+                "description": "No description available."
+            },
+            "DropItemAliveMaxHours": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "bAutoResetGuildNoOnlinePlayers": {
+                "value": false,
+                "description": "No description available."
+            },
+            "AutoResetGuildTimeNoOnlinePlayers": {
+                "value": 72.0,
+                "description": "No description available."
+            },
+            "GuildPlayerMaxNum": {
+                "value": 20,
+                "description": "No description available."
+            },
+            "PalEggDefaultHatchingTime": {
+                "value": 72.0,
+                "description": "No description available."
+            },
+            "WorkSpeedRate": {
+                "value": 1.0,
+                "description": "No description available."
+            },
+            "bIsMultiplay": {
+                "value": false,
+                "description": "No description available."
+            },
+            "bIsPvP": {
+                "value": false,
+                "description": "No description available."
+            },
+            "bCanPickupOtherGuildDeathPenaltyDrop": {
+                "value": false,
+                "description": "Guild Death Penalty Drop Pickup - Whether players can pick up death penalty drops from other players that are not in their guild."
+            },
+            "bEnableNonLoginPenalty": {
+                "value": true,
+                "description": "Non-Login Penalty - Whether players should experience penalties for being inactive."
+            },
+            "bEnableFastTravel": {
+                "value": true,
+                "description": "Fast Travel - Whether players should be able to use fast travel waypoints."
+            },
+            "bIsStartLocationSelectByMap": {
+                "value": true,
+                "description": "Start Location Select by Map - Choose whether players should be able to choose their starting location from the map."
+            },
+            "bExistPlayerAfterLogout": {
+                "value": false,
+                "description": "No description available."
+            },
+            "bEnableDefenseOtherGuildPlayer": {
+                "value": false,
+                "description": "No description available."
+            },
+            "CoopPlayerMaxNum": {
+                "value": 4,
+                "description": "No description available."
+            },
+            "ServerPlayerMaxNum": {
+                "value": 32,
+                "description": "Maximum Players - Sets the maximum amount of players on your server."
+            },
+            "ServerName": {
+                "value": "Default Palworld Server",
+                "description": "Server Name - Sets the name on the server browser list."
+            },
+            "ServerDescription": {
+                "value": "",
+                "description": "Server Description - Display a brief summary of what players can expect from your server on the in-game server list."
+            },
+            "AdminPassword": {
+                "value": "",
+                "description": "Admin Password - The password used by admins to grant themselves admin permissions in-game."
+            },
+            "ServerPassword": {
+                "value": "",
+                "description": "Password - Sets a password to connect to your server."
+            },
+            "PublicPort": {
+                "value": 8211,
+                "description": "No description available."
+            },
+            "PublicIP": {
+                "value": "",
+                "description": "No description available."
+            },
+            "RCONEnabled": {
+                "value": false,
+                "description": "No description available."
+            },
+            "RCONPort": {
+                "value": 25575,
+                "description": "No description available."
+            },
+            "Region": {
+                "value": "",
+                "description": "No description available."
+            },
+            "bUseAuth": {
+                "value": true,
+                "description": "Automatic Steam Updates - Enable or disable automatic steam updates and file validation on server startup."
+            },
+            "BanListURL": {
+                "value": "https://api.palworldgame.com/api/banlist.txt",
+                "description": "No description available."
+            }
+        }
+    }
+}
